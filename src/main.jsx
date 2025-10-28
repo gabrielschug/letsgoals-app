@@ -7,8 +7,14 @@ import { RouterProvider } from 'react-router/dom'
 // Importando as Rotas de cada funcionalidade
 import App from './App.jsx'
 import CriarCaixinha from './CriarCaixinha.jsx'
+import Inicio from './Inicio.jsx'
+import Login from './Login.jsx'
+import Cadastro from './Cadastro.jsx'
 
 const router = createBrowserRouter([
+  { path: "/inicio", Component: Inicio },
+  { path: "/login", Component: Login },
+  { path: "/cadastro", Component: Cadastro },
   { path: "/", Component: App },
   { path: "/criarcaixinha", Component: CriarCaixinha },
 ]);

@@ -9,7 +9,7 @@ export default function BgCartao() {
   const valorPoupado = VALOR_POUPADO.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })
 
   return (
-    <div className=" m-3 p-6 rounded-2xl h-60 bg-gradient-verde text-branco flex flex-col items-center justify-around gap-4">
+    <div className=" m-3 p-3 rounded-2xl h-60 bg-gradient-verde text-branco flex flex-col items-center justify-around gap-4">
       <div className="card__container flex justify-between">
         <div className="card__infos flex-col text-center">
           <h3 className="text-xl mt-2 mb-8">Bem-vindo {usuario}!</h3>

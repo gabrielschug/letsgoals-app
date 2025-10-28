@@ -1,16 +1,15 @@
-import BannerAnuncio from "./components/BannerAnuncio"
-import Header from "./components/Header"
-import BgCartao from "./components/BgCartao"
 import "./input.css"
-import Footer from "./components/Footer"
+
+import Header from "./components/Header"
+import BannerAnuncio from "./components/BannerAnuncio"
+import BgCartao from "./components/BgCartao"
 import BtnFuncionalidade from "./components/BtnFuncionalidade"
+import Footer from "./components/Footer"
 
 function App() {
 
-
-
   return (
-    <div className="bg-white">
+    <div className="bg-white relative">
       <Header />
       <BannerAnuncio />
       <BgCartao />
