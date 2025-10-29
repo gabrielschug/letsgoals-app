@@ -4,12 +4,20 @@
 
 #root {
   font-family: 'Poppins',sans-serif;
+  color: #111827;
 }
 
 @theme {
-  --color-branco: #FFFFFF;
-  --color-verdeescuro: #16886F;
+  --color-azul: #4F46E5;
+  --color-menta: #10B981;
   --color-verde: #1BA285;
+  --color-verdeescuro: #16886F;
+  --color-amarelo: #FBBF24;
+  --color-branco: #FFFFFF;
+  
+  --color-fundo: #F9FAFB;
+  --color-textop: #111827;
+  --color-textos: #6B7280
 }
 
 

@@ -22,7 +22,7 @@ export default function BgCartao() {
           <div className="w-25 h-25 bg-verdeescuro rounded-full"></div>
         </div>
       </div>
-      <BotaoBrancoLongo />
+      <BotaoBrancoLongo texto="Bora criar uma caixinha" link="/criarcaixinha" />
     </div>
   )
 }

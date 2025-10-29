@@ -1,7 +1,7 @@
-import "./input.css"
+import "../input.css"
 
-import Footer from "./components/Footer";
-import Header from "./components/Header";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { Link } from "react-router";
 
 
@@ -37,8 +37,8 @@ export default function CriarCaixinha() {
             <div className="mt-2 grid grid-cols-1">
               <select id="country" name="country" autocomplete="country-name" className="col-start-1 row-start-1 appearance-none rounded-md bg-white py-2 pr-8 pl-4 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-verdescuro">
                 <option>3 meses</option>
-                <option>9 meses</option>
                 <option>6 meses</option>
+                <option>9 meses</option>
                 <option>1 ano</option>
                 <option>2 anos</option>
               </select>

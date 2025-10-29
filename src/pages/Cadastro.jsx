@@ -1,40 +1,40 @@
 import { Link } from "react-router";
+import Label from "../components/Label";
+import BotaoVerde from "../components/BotaoVerde";
+import BotaoBranco from "../components/BotaoBranco";
+import BotaoVoltar from "../components/BotaoVoltar";
+import Titulo from "../components/Titulo";
 
 export default function Cadastro() {
 
   return (
-    <div className="bg-white">
+    <div className="flex flex-col items-center pt-40 h-screen bg-fundo">
 
-      <h1>Cadastro</h1>
+      <div className="flex justify-center text-center">
+        <Titulo texto="Bora tirar aqueles planos do papel? Faça seu cadastro" />
+      </div>
 
-      <div className="m-4">
+      <div className="m-4 flex flex-col items-center">
         <p>
-          <label for="titulo" className="text-sm/8 font-medium text-gray-900">Qual seu nome?</label>
+          <Label label_for='titulo' texto='Qual seu nome?' />
           <input id="titulo" type="text" name="titulo" className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro" />
         </p>
 
         <p>
-          <label for="titulo" className="text-sm/8 font-medium text-gray-900">Digite um usuário</label>
+          <Label label_for='usuario' texto='Crie seu usuário:' />
           <input id="titulo" type="text" name="titulo" className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro" />
         </p>
 
         <p>
-          <label for="titulo" className="text-sm/8 font-medium text-gray-900">Crie uma senha:</label>
+          <Label label_for='senha' texto='Crie uma senha:' />
           <input id="titulo" type="password" name="titulo" className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro" />
         </p>
 
-        <p>
-          <input
-            className=" text-slate-700 hover:text-slate-800 px-8 text-md rounded-full flex items-center font-bold cursor-pointer"
-            type="reset" value="Limpar" />
-
-          <Link to="/login">
-            <input
-              className="bg-verde text-white py-3 px-9 text-md rounded-full flex items-center font-bold cursor-pointer hover:bg-verdeescuro"
-              type="submit" value="Criar" />
-          </Link>
+        <p className="flex p-4 justify-center gap-4 mt-12">
+          <BotaoBranco texto='Limpar' type='reset' />
+          <BotaoVerde link='/login' type='submit' texto='Criar' />
         </p>
-
+        <BotaoVoltar link="/" texto="Voltar pro Início" />
 
       </div>
 

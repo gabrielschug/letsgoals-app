@@ -6,16 +6,16 @@ import { RouterProvider } from 'react-router/dom'
 
 // Importando as Rotas de cada funcionalidade
 import App from './App.jsx'
-import CriarCaixinha from './CriarCaixinha.jsx'
-import Inicio from './Inicio.jsx'
-import Login from './Login.jsx'
-import Cadastro from './Cadastro.jsx'
+import CriarCaixinha from '../src/pages/CriarCaixinha.jsx'
+import Inicio from '../src/pages/Inicio.jsx'
+import Login from '../src/pages/Login.jsx'
+import Cadastro from '../src/pages/Cadastro.jsx'
 
 const router = createBrowserRouter([
-  { path: "/inicio", Component: Inicio },
+  { path: "/", Component: Inicio },
   { path: "/login", Component: Login },
   { path: "/cadastro", Component: Cadastro },
-  { path: "/", Component: App },
+  { path: "/menu", Component: App },
   { path: "/criarcaixinha", Component: CriarCaixinha },
 ]);
 
