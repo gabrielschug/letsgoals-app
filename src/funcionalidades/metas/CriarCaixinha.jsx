@@ -1,7 +1,7 @@
-import "../input.css"
+import "../../styles/input.css"
 
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import Footer from "../../components/Layout/Footer";
+import Header from "../../components/Layout/Header";
 import { Link } from "react-router";
 
 

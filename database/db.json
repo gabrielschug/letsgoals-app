@@ -1,0 +1,26 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nome": "Gabriel Schug",
+      "usuario":"schug",
+      "senha":"1234"
+    },
+    {
+      "id": "2",
+      "nome": "Joaqui Duarte",
+      "usuario":"duartee",
+      "senha":"1234"
+    }
+  ],
+  "metas": [
+    {
+      "id":"1",
+      "titulo": "Meta Teste",
+      "idParticipantes":["1"],
+      "valorTotal" : 1000,
+      "valorInicial": 100,
+      "periodos": 6
+    }
+  ]
+}

@@ -1,10 +1,10 @@
-import "./input.css"
+import "./styles/input.css"
 
-import Header from "./components/Header"
-import BannerAnuncio from "./components/BannerAnuncio"
-import BgCartao from "./components/BgCartao"
-import BtnFuncionalidade from "./components/BtnFuncionalidade"
-import Footer from "./components/Footer"
+import Header from "./components/Layout/Header"
+import BannerAnuncio from "./funcionalidades/metas/home/BannerAnuncio"
+import BgCartao from "./funcionalidades/metas/home/BgCartao"
+import BtnFuncionalidade from "./funcionalidades/metas/home/BtnFuncionalidade"
+import Footer from "./components/Layout/Footer"
 
 function App() {
 

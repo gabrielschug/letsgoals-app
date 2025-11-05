@@ -1,6 +1,4 @@
-import BotaoBrancoLongo from "./BotaoBrancoLongo"
-
-
+import BotaoBrancoLongo from "../../../components/Botoes/BotaoBrancoLongo"
 
 export default function BgCartao() {
 

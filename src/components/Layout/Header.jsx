@@ -1,6 +1,6 @@
 import { Link } from "react-router";
-import IconeCabecalho from "../IconeCabecalho";
-import TituloCabecalho from "../TituloCabecalho";
+import IconeCabecalho from "../Layout/IconeCabecalho";
+import TituloCabecalho from "../Layout/TituloCabecalho";
 
 export default function Header() {
 

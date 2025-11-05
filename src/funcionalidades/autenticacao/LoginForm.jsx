@@ -1,8 +1,8 @@
-import Label from "../../../components/Label";
-import BotaoVerde from "../../../components/BotaoVerde";
-import BotaoBranco from "../../../components/BotaoBranco";
-import BotaoVoltar from "../../../components/BotaoVoltar";
-import Titulo from "../../../components/Titulo";
+import Label from "../../components/ferramentaForms/Label";
+import BotaoVerde from "../../components/Botoes/BotaoVerde";
+import BotaoBranco from "../../components/Botoes/BotaoBranco";
+import BotaoVoltar from "../../components/Botoes/BotaoVoltar";
+import Titulo from "../../components/Layout/Titulo";
 
 export default function Login() {
 

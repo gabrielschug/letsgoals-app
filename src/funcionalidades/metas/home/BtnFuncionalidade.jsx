@@ -1,5 +1,5 @@
 import { Link } from "react-router"
-import Subtitulo from "../../components/Layout/Subtitulo"
+import Subtitulo from "../../../components/Layout/Subtitulo"
 
 export default function BtnFuncionalidade() {
 
