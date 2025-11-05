@@ -11,5 +11,3 @@ export default function BotaoVerde({ texto, link, type }) {
     </>
   )
 }
-
-

@@ -2,23 +2,33 @@
   "usuarios": [
     {
       "id": "1",
-      "nome": "Gabriel Schug",
-      "usuario":"schug",
-      "senha":"1234"
+      "nomeUsuario": "Gabriel Schug",
+      "senhaUsuario": "1234"
     },
     {
       "id": "2",
-      "nome": "Joaqui Duarte",
-      "usuario":"duartee",
-      "senha":"1234"
+      "nomeUsuario": "Joaquim Duarte",
+      "senhaUsuario": "1234"
+    },
+    {
+      "id": "86b3",
+      "nomeUsuario": "ga",
+      "senhaUsuario": "12345"
+    },
+    {
+      "id": "f8ce",
+      "nomeUsuario": "Joaquim Duarte",
+      "senhaUsuario": "12345"
     }
   ],
   "metas": [
     {
-      "id":"1",
+      "id": "1",
       "titulo": "Meta Teste",
-      "idParticipantes":["1"],
-      "valorTotal" : 1000,
+      "idParticipantes": [
+        "1"
+      ],
+      "valorTotal": 1000,
       "valorInicial": 100,
       "periodos": 6
     }

@@ -1,18 +1,45 @@
-import { Link } from "react-router";
-import Label from "../../components/ferramentaForms/Label";
-import BotaoVerde from "../../components/Botoes/BotaoVerde";
-import BotaoBranco from "../../components/Botoes/BotaoBranco";
-import BotaoVoltar from "../../components/Botoes/BotaoVoltar";
 import Titulo from "../../components/Layout/Titulo";
-import Input from "../../components/ferramentaForms/Input";
+import BotaoVoltar from "../../components/Botoes/BotaoVoltar"
 
 import { useForm } from "react-hook-form";
+import { useEffect } from "react";
+import { useNavigate } from "react-router"
+
 
 export default function Cadastro() {
+  const { register, handleSubmit, reset, setFocus, formState: { errors } } = useForm()
+  let navigate = useNavigate()
 
-  const { register, handleSubmit } = useForm()
+  async function cadastrarUsuario(data) {
+    console.log('está rodando o clique')
+    const nomeUsuario = data.nomeUsuario
+    const senhaUsuario = data.senhaUsuario
 
-  const cadastrarUsuario = (data) => { alert(JSON.stringify(data)) }
+    try {
+      const resposta = await fetch("http://localhost:3000/usuarios", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          nomeUsuario, senhaUsuario
+        })
+      })
+      if (!resposta.ok) throw new Error("Erro ao cadastrar usuário")
+      const novoUsuario = await resposta.json()
+      alert(`✅ Ok! Usuário ${novoUsuario.nomeUsuario} foi cadastrado!`)
+      navigate("/login")
+    } catch (erro) {
+      console.log(`❌ Erro: ${erro.message}`)
+    }
+    reset()
+  }
+
+  function criarItem() {
+    console.log("Função criarItem() foi chamada!");
+  }
+
+  useEffect(() => {
+    setFocus("nomeUsuario")
+  }, [])
 
   return (
     <div className="flex flex-col items-center pt-40 h-screen bg-fundo">
@@ -24,29 +51,63 @@ export default function Cadastro() {
       <form onSubmit={handleSubmit(cadastrarUsuario)}>
 
         <div className="m-4 flex flex-col items-center">
-          <p>
-            <Label label_for='titulo' texto='Qual seu nome?' />
-            <Input id="titulo" type="text" name="titulo" {...register("titulo")} />
-          </p>
 
-          <p>
-            <Label label_for='usuario' texto='Crie seu usuário:' />
-            <Input id="usuario" type="text" name="usuario" {...register("usuario")} />
-          </p>
+          <div>
 
-          <p>
-            <Label label_for='senha' texto='Crie uma senha:' />
-            <Input id="senha" type="text" name="senha" {...register("senha")} />
-          </p>
+            <label
+              htmlFor='nomeUsuario'
+              className="text-sm/8 font-medium text-gray-900">
+              Informe seu nome:
+            </label>
 
-          <p className="flex p-4 justify-center gap-4 mt-12">
-            <BotaoBranco texto='Limpar' type='reset' />
-            <BotaoVerde type='submit' texto='Criar' />
-          </p>
-          <BotaoVoltar link="/" texto="Voltar pro Início" />
+
+            <input
+              id="nomeUsuario"
+              type="text"
+              className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
+              {...register("nomeUsuario",
+                { required: "O nome é obrigatório" })}
+            />
+            {errors.nomeUsuario && <span className="text-red-600">{errors.nomeUsuario.message}</span>}
+          </div>
+
+          <div>
+
+            <label
+              htmlFor='senhaUsuario'
+              className="text-sm/8 font-medium text-gray-900">
+              'Crie uma senha:'
+            </label>
+
+            <input
+              id="senhaUsuario"
+              type="password"
+              className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
+              {...register("senhaUsuario", {
+                required: "A senha é obrigatória",
+                minLength: { value: 4, message: "Mínimo de 4 caracteres" }
+              })}
+            />
+            {errors.senhaUsuario && <span className="text-red-600">{errors.senhaUsuario.message}</span>}
+          </div>
+
+          <div className="flex p-4 justify-center gap-4 mt-12">
+
+            <input
+              className="bg-branco text-textop py-3 px-9 text-md rounded-full flex items-center text-center font-bold cursor-pointer hover:text-textos hover:outline-1"
+              type="reset"
+              value='Limpar' />
+
+            <input
+              className="bg-verde text-white py-3 px-9 text-md rounded-full flex items-center text-center font-bold cursor-pointer hover:bg-verdeescuro"
+              type="submit"
+              value="Criar" />
+
+          </div>
 
         </div>
       </form>
+      <BotaoVoltar link="/" texto="Voltar pro Início" />
 
     </div>
   )
