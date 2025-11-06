@@ -11,7 +11,6 @@ export default function Cadastro() {
   let navigate = useNavigate()
 
   async function cadastrarUsuario(data) {
-    console.log('está rodando o clique')
     const nomeUsuario = data.nomeUsuario
     const senhaUsuario = data.senhaUsuario
 
@@ -31,10 +30,6 @@ export default function Cadastro() {
       console.log(`❌ Erro: ${erro.message}`)
     }
     reset()
-  }
-
-  function criarItem() {
-    console.log("Função criarItem() foi chamada!");
   }
 
   useEffect(() => {
@@ -59,7 +54,6 @@ export default function Cadastro() {
               className="text-sm/8 font-medium text-gray-900">
               Informe seu nome:
             </label>
-
 
             <input
               id="nomeUsuario"

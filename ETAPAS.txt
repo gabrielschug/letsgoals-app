@@ -10,8 +10,8 @@ Legenda de Status
 🔶 RF_01: Gerenciar Perfil de Usuário
 O sistema deve permitir que um usuário crie uma conta (cadastro), realize autenticação (login/logout)
 e visualize seus dados.
-📝 FAZENDO: Cadastro de Usuário - React Hook Form já instalado, problema no registro dos dados
-🟡 FAZER: Login de usuário
+✅ Cadastro de Usuário
+✅ FAZER: Login de usuário
 🟡 FAZER: Perfil de usuário - Visualização de dados
 🟡 FAZER: Perfil de usuário - Alteração de dados
 
