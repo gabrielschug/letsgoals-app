@@ -8,42 +8,46 @@ import { useForm } from "react-hook-form";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
+import { useAuth } from '../../context/usuarioContext'
+
 
 export default function Login() {
   const { register, handleSubmit, reset, setFocus, formState: { errors } } = useForm()
   let navigate = useNavigate()
   const [aviso, setAviso] = useState("")
 
+  const { login } = useAuth()
+
   async function LoginUsuario(data) {
     const nomeUsuario = data.nomeUsuario
     const senhaUsuario = data.senhaUsuario
 
     try {
-      const resposta = await fetch("http://localhost:3000/usuarios")
+      const resposta = await fetch(`http://localhost:3000/usuarios?nomeUsuario=${nomeUsuario}&senhaUsuario=${senhaUsuario}`)
       if (!resposta.ok) throw new Error("Usuário não cadastrado");
-      const dados = await resposta.json()
 
-      //ENCONTRAR usuário no array
-      const usuarioEncontrado = dados.find(
-        (usuario) =>
-          usuario.nomeUsuario === nomeUsuario && usuario.senhaUsuario === senhaUsuario
-      );
-      if (usuarioEncontrado) {
+      const dados = await resposta.json()
+      const usuarioEcontrado = dados[0]
+
+      if (usuarioEcontrado) {
         setAviso("")
-        navigate("/menu")
+        login(usuarioEcontrado)
+        navigate("/home")
       } else {
-        setAviso('❌ Usuário ou senha incorretos')
+        setAviso('❌ Usuário ou senha não encontrado')
+        reset()
       }
 
     } catch (erro) {
       console.log(`❌ Erro: ${erro.message}`)
+      setAviso('Falha ao tentar login. Tente novamente.')
     }
     reset()
   }
 
   useEffect(() => {
     setFocus("nomeUsuario")
-  }, [])
+  }, [setFocus])
 
   return (
     <div className="flex flex-col items-center pt-40 h-screen bg-fundo">

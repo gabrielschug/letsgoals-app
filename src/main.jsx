@@ -3,24 +3,30 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter } from 'react-router'
 import { RouterProvider } from 'react-router/dom'
 
+// Importando Provedor de Autenticação
+import AuthProvider from './context/usuarioContext.jsx'
 
 // Importando as Rotas de cada funcionalidade
-import App from './App.jsx'
-import CriarCaixinha from '../src/funcionalidades/metas/CriarCaixinha.jsx'
-import Inicio from '../src/funcionalidades/boasVindas/Inicio.jsx'
-import Login from '../src/funcionalidades/autenticacao/LoginForm.jsx'
-import Cadastro from '../src/funcionalidades/autenticacao/CadastroForm.jsx'
+import CriarMetaForm from './funcionalidades/metas/CriarMetaForm.jsx'
+import Inicio from './funcionalidades/boasVindas/Inicio.jsx'
+import Login from './funcionalidades/autenticacao/LoginForm.jsx'
+import Cadastro from './funcionalidades/autenticacao/CadastroForm.jsx'
+import Home from './funcionalidades/metas/home/Home.jsx'
+import Ajuda from './funcionalidades/boasVindas/Ajuda.jsx'
 
 const router = createBrowserRouter([
   { path: "/", Component: Inicio },
+  { path: "/ajuda", Component: Ajuda },
   { path: "/login", Component: Login },
   { path: "/cadastro", Component: Cadastro },
-  { path: "/menu", Component: App },
-  { path: "/criarcaixinha", Component: CriarCaixinha },
+  { path: "/home", Component: Home },
+  { path: "/criarmeta", Component: CriarMetaForm },
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

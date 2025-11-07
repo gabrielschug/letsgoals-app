@@ -13,13 +13,14 @@ export default function Cadastro() {
   async function cadastrarUsuario(data) {
     const nomeUsuario = data.nomeUsuario
     const senhaUsuario = data.senhaUsuario
+    const saldoUsuario = 0
 
     try {
       const resposta = await fetch("http://localhost:3000/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          nomeUsuario, senhaUsuario
+          nomeUsuario, senhaUsuario, saldoUsuario
         })
       })
       if (!resposta.ok) throw new Error("Erro ao cadastrar usuário")

@@ -1,28 +1,28 @@
 import { Link } from "react-router"
-import Subtitulo from "../../../components/Layout/Subtitulo"
+import Subtitulo from "../../../../components/Layout/Subtitulo"
 
 export default function BtnFuncionalidade() {
 
   const funcionalidades = [
     {
-      titulo: "Contribuir",
+      titulo: "Minha Carteira",
       icone: "icone_contribuir.png",
-      rota: "/criarcaixinha"
+      rota: "/carteira"
     },
     {
-      titulo: 'Entrar em uma Caixinha',
-      icone: "icone_entrar.png",
-      rota: "/criarcaixinha"
-    },
-    {
-      titulo: 'Criar uma Caixinha',
+      titulo: 'Iniciar uma Meta',
       icone: "icone_criar.png",
-      rota: "/criarcaixinha"
+      rota: "/criarMeta"
+    },
+    {
+      titulo: 'Entrar em uma Meta',
+      icone: "icone_entrar.png",
+      rota: "/adesaometa"
     },
     {
       titulo: 'Ajuda',
       icone: "icone_ajuda.png",
-      rota: "/criarcaixinha"
+      rota: "/ajuda"
     }
   ]
 

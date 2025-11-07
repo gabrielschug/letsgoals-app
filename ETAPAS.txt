@@ -18,8 +18,8 @@ e visualize seus dados.
 🔶 RF_02: Criar Meta Colaborativa
 O sistema deve permitir que um usuário autenticado crie uma nova meta (grupo), definindo título,
 valor-alvo, data de conclusão e gerando um link de convite.
-🟡 FAZER: [Front-end] Implementar formulário de criação de meta (título, valor, períodos, participantes).
-🟡 FAZER: [Back-end] Criar endpoint para salvar a nova meta no banco de dados -máximo 3 metas por usuário.
+📝 FAZER: [Front-end] Implementar formulário de criação de meta (título, valor, períodos, participantes).
+📝 FAZER: [Back-end] Criar endpoint para salvar a nova meta no banco de dados -máximo 3 metas por usuário.
 🟡 FAZER: [Back-end] Implementar lógica para gerar link de convite exclusivo - Informar ID da Meta.
 
 🔶 RF_03: Adesão à Meta

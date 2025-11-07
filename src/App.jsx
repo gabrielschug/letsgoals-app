@@ -10,13 +10,9 @@ function App() {
 
   return (
     <div className="bg-white relative">
-      <Header />
-      <BannerAnuncio />
-      <BgCartao />
-      <BtnFuncionalidade />
-      <Footer />
+
     </div >
   )
 }
 
-export default App
+export default App  

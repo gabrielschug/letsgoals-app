@@ -1,61 +1,88 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nomeUsuario": "Gabriel Schug",
-      "senhaUsuario": "1234"
+      "id": "1b9b",
+      "nomeUsuario": "Valeria",
+      "senhaUsuario": "1234",
+      "saldoUsuario": 0
     },
     {
-      "id": "2",
-      "nomeUsuario": "Joaquim Duarte",
-      "senhaUsuario": "1234"
+      "id": "efb4",
+      "nomeUsuario": "Paulo",
+      "senhaUsuario": "1234",
+      "saldoUsuario": 0
     },
     {
-      "id": "86b3",
-      "nomeUsuario": "ga",
-      "senhaUsuario": "12345"
-    },
-    {
-      "id": "f8ce",
-      "nomeUsuario": "Joaquim Duarte",
-      "senhaUsuario": "12345"
-    },
-    {
-      "id": "a937",
-      "nomeUsuario": "gabriel",
-      "senhaUsuario": "senhacoretta"
-    },
-    {
-      "id": "927d",
-      "nomeUsuario": "teste",
-      "senhaUsuario": "teste"
-    },
-    {
-      "id": "fb74",
-      "nomeUsuario": "teste1",
-      "senhaUsuario": "12354"
-    },
-    {
-      "id": "ed5a",
-      "nomeUsuario": "sdsd",
-      "senhaUsuario": "dsdsds"
-    },
-    {
-      "id": "fee7",
-      "nomeUsuario": "dsdss",
-      "senhaUsuario": "eweweererere"
+      "id": "9b30",
+      "nomeUsuario": "karen",
+      "senhaUsuario": "1234",
+      "saldoUsuario": 0
     }
   ],
   "metas": [
     {
-      "id": "1",
-      "titulo": "Meta Teste",
-      "idParticipantes": [
-        "1"
-      ],
-      "valorTotal": 1000,
-      "valorInicial": 100,
-      "periodos": 6
+      "id": "100",
+      "liderId": "1",
+      "titulo": "Formatura Medicina",
+      "valorAlvo": 5000,
+      "valorInicial": 500,
+      "periodoConclusao": "2025-12-01",
+      "status": "ativa",
+      "linkConvite": "abc12"
+    },
+    {
+      "id": "101",
+      "liderId": "2",
+      "titulo": "Viagem Floripa",
+      "valorAlvo": 2500,
+      "valorInicial": 0,
+      "periodoConclusao": "2025-06-30",
+      "status": "ativa",
+      "linkConvite": "xyz98"
+    },
+    {
+      "id": "52f6",
+      "liderId": "1",
+      "periodoConclusao": "6",
+      "status": "ativo",
+      "linkConvite": "9242"
+    },
+    {
+      "id": "e93e",
+      "liderId": "1",
+      "periodoConclusao": "9",
+      "status": "ativo",
+      "linkConvite": "567"
+    }
+  ],
+  "participacoes": [
+    {
+      "id": "p1",
+      "metaId": "100",
+      "usuarioId": "1",
+      "nomeUsuario": "valeria"
+    },
+    {
+      "id": "p2",
+      "metaId": "101",
+      "usuarioId": "2",
+      "nomeUsuario": "claudio"
+    }
+  ],
+  "contribuicoes": [
+    {
+      "id": "c1",
+      "metaId": "100",
+      "usuarioId": "2",
+      "valor": 500,
+      "data": "2024-10-01T10:00:00Z"
+    },
+    {
+      "id": "c2",
+      "metaId": "101",
+      "usuarioId": "2",
+      "valor": 150,
+      "data": "2024-10-15T14:30:00Z"
     }
   ]
 }
