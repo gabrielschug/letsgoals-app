@@ -12,8 +12,7 @@ O sistema deve permitir que um usuário crie uma conta (cadastro), realize auten
 e visualize seus dados.
 ✅ Cadastro de Usuário
 ✅ FAZER: Login de usuário
-🟡 FAZER: Perfil de usuário - Visualização de dados
-🟡 FAZER: Perfil de usuário - Alteração de dados
+⚪ FAZER: Perfil de usuário - Visualização de dados
 
 🔶 RF_02: Criar Meta Colaborativa
 O sistema deve permitir que um usuário autenticado crie uma nova meta (grupo), definindo título,
@@ -25,7 +24,7 @@ valor-alvo, data de conclusão e gerando um link de convite.
 🔶 RF_03: Adesão à Meta
 O sistema deve permitir que um usuário, por meio de um link de convite, visualize os detalhes de uma
 meta e confirme sua participação nela.
-🟡 FAZER: [Front-end] Criar página de "convite" que exibe detalhes da meta para não-membros - através do ID.
+⚪ FAZER: [Front-end] Criar página de "convite" que exibe detalhes da meta para não-membros - através do ID.
 🟡 FAZER: [Front-end] Implementar botão/ação de "Confirmar Participação".
 🟡 FAZER: [Back-end] Criar endpoint para adicionar o usuário à meta - push array "idParticipantes".
 
@@ -70,7 +69,7 @@ O sistema deve permitir que o líder edite informações básicas da meta (ex: t
 🟡 FAZER: [Front-end] Criar formulário de edição de meta (título).
 🟡 FAZER: [Back-end] Criar endpoint PUT /meta/:id .
 🟡 FAZER: [Back-end] Implementar lógica de bloqueio de edição (valor/data) se
-"numero_de_membros > 1".
+"meta.LiderId" > "usuario".
 
 🔶 RF_09: Registro de Contribuição
 O sistema deve permitir que cada participante marque sua contribuição mensal como "realizada".

@@ -69,6 +69,24 @@ export default function Cadastro() {
           <div>
 
             <label
+              htmlFor='idadeUsuario'
+              className="text-sm/8 font-medium text-gray-900">
+              Informe sua idade:
+            </label>
+
+            <input
+              id="idadeUsuario"
+              type="text"
+              className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
+              {...register("idadeUsuario",
+                { required: "Informe sua idade" })}
+            />
+            {errors.idadeUsuario && <span className="text-red-600">{errors.nomeUsuario.message}</span>}
+          </div>
+
+          <div>
+
+            <label
               htmlFor='senhaUsuario'
               className="text-sm/8 font-medium text-gray-900">
               'Crie uma senha:'

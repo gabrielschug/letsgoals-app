@@ -17,6 +17,12 @@
       "nomeUsuario": "karen",
       "senhaUsuario": "1234",
       "saldoUsuario": 0
+    },
+    {
+      "id": "e27d",
+      "nomeUsuario": "schug",
+      "senhaUsuario": "1234",
+      "saldoUsuario": 0
     }
   ],
   "metas": [
@@ -25,7 +31,6 @@
       "liderId": "1",
       "titulo": "Formatura Medicina",
       "valorAlvo": 5000,
-      "valorInicial": 500,
       "periodoConclusao": "2025-12-01",
       "status": "ativa",
       "linkConvite": "abc12"
