@@ -13,17 +13,22 @@ export default function Cadastro() {
   async function cadastrarUsuario(data) {
     const nomeUsuario = data.nomeUsuario
     const senhaUsuario = data.senhaUsuario
+    const idadeUsuario = data.idadeUsuario
+    const emailUsuario = data.emailUsuario
     const saldoUsuario = 0
 
     try {
-      const resposta = await fetch("http://localhost:3000/usuarios", {
+  const resposta = await fetch("http://localhost:3000/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          nomeUsuario, senhaUsuario, saldoUsuario
+          nomeUsuario, senhaUsuario, saldoUsuario, idadeUsuario, emailUsuario
         })
       })
-      if (!resposta.ok) throw new Error("Erro ao cadastrar usuário")
+      if (!resposta.ok) {
+        const text = await resposta.text().catch(() => "")
+        throw new Error(`Erro ao cadastrar usuário (status ${resposta.status}) ${text}`)
+      }
       const novoUsuario = await resposta.json()
       alert(`✅ Ok! Usuário ${novoUsuario.nomeUsuario} foi cadastrado!`)
       navigate("/login")
@@ -81,7 +86,25 @@ export default function Cadastro() {
               {...register("idadeUsuario",
                 { required: "Informe sua idade" })}
             />
-            {errors.idadeUsuario && <span className="text-red-600">{errors.nomeUsuario.message}</span>}
+            {errors.idadeUsuario && <span className="text-red-600">{errors.idadeUsuario.message}</span>}
+          </div>
+
+          <div>
+
+            <label
+              htmlFor='emailUsuario'
+              className="text-sm/8 font-medium text-gray-900">
+              Informe seu Email:
+            </label>
+
+            <input
+              id="emailUsuario"
+              type="text"
+              className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
+              {...register("emailUsuario",
+                { required: "Informe seu Email" })}
+            />
+            {errors.emailUsuario && <span className="text-red-600">{errors.emailUsuario.message}</span>}
           </div>
 
           <div>

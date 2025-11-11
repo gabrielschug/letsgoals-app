@@ -26,31 +26,56 @@ export default function CriarMetaForm() {
   }, [isAuthLoading, usuarioLogado, setFocus, navigate])
 
   async function criarMeta(data) {
-    if (!usuarioLogado) return // SEGURANÇA - sem usuario = sem Interface
+    if (!usuarioLogado) return 
 
     const liderId = usuarioLogado.id
-    const titulo = data.titulo
-    const valorAlvo = data.valorAlvo
-    const valorInicial = data.valorInicial
+    const tipoMeta = data.tipoMeta
+    const titulo = data.metaTitulo
+    const valorAlvo = Number(data.valorAlvo)
     const periodoConclusao = data.periodoConclusao
     const linkConvite = String(Math.floor(Math.random() * 9999))
+    let imagem = ""
+
+    if(tipoMeta === "Viagem"){
+      imagem = "/viagem.jpg"
+    } else if (tipoMeta === "Formatura"){
+      imagem = "/formatura.jpg"
+    } else if (tipoMeta === "Aluguel"){
+      imagem = "/aluguel.jpg"
+    } else {
+      imagem = "/sonho.jpg"
+    }
+
+    console.log("Dados enviados:", { liderId, tipoMeta, titulo, valorAlvo, periodoConclusao, imagem })
+
 
     try {
       const resposta = await fetch("http://localhost:3000/metas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          liderId, titulo, valorAlvo, valorInicial, periodoConclusao, "status": "ativo", "linkConvite": linkConvite
+          liderId,
+          tipoMeta,
+          titulo,
+          valorAlvo,
+          periodoConclusao,
+          status: "ativo",
+          linkConvite: linkConvite,
+          imagem
         })
       })
-      if (!resposta.ok) throw new Error("Erro ao cadastrar a meta");
+      if (!resposta.ok) {
+        const errorText = await resposta.text().catch(() => "")
+        throw new Error(`Erro ao cadastrar a meta (Status ${resposta.status}): ${errorText}`)
+      }
 
       const novaMeta = await resposta.json()
       alert(`✅ Ok! a Meta ${novaMeta.titulo} foi criada!`)
       navigate("/home")
 
     } catch (error) {
-      console.log(`❌ Erro: ${error.message}`)
+      console.error(`❌ Erro ao criar meta:`, error)
+      alert(`❌ ${error.message}`)
     }
     reset()
   }
@@ -73,7 +98,39 @@ export default function CriarMetaForm() {
 
       <form onSubmit={handleSubmit(criarMeta)}>
 
-        <div className="form__input  m-4 flex flex-col items-center">
+      <div className="form__select__tipo m-4 flex flex-col items-center">
+          <div>
+
+            <label
+              htmlFor="tipo"
+              className="text-sm/8 font-medium text-gray-900">
+              Qual o tipo da sua meta?
+            </label>
+
+            <div className="grid grid-cols-1 m-0">
+
+              <select
+                id="tipo"
+                name="tipo"
+                autoComplete="tipo"
+                className="col-start-1 row-start-1 appearance-none rounded-md bg-white py-2 pr-4 pl-4 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-verdescuro"
+                {...register("tipoMeta")}>
+                <option value="" disabled className="text-sm">Selecione o tipo:</option>
+                <option value="Viagem" className="text-sm">Viagem</option>
+                <option value="Formatura" className="text-sm">Formatura</option>
+                <option value="Aluguel" className="text-sm">Aluguel</option>
+                <option value="Outros" className="text-sm">Outro...</option>
+              </select>
+
+              <svg viewBox="0 0 16 16" fill="currentColor" data-slot="icon" aria-hidden="true" className="pointer-events-none col-start-1 row-start-1 mr-2 size-5 self-center justify-self-end text-gray-500 sm:size-4">
+                <path d="M4.22 6.22a.75.75 0 0 1 1.06 0L8 8.94l2.72-2.72a.75.75 0 1 1 1.06 1.06l-3.25 3.25a.75.75 0 0 1-1.06 0L4.22 7.28a.75.75 0 0 1 0-1.06Z" clip-rule="evenodd" fill-rule="evenodd" />
+              </svg>
+
+            </div>
+          </div>
+       </div>
+
+        <div className="form__input__titulo  m-4 flex flex-col items-center">
 
           <label
             htmlFor="titulo"
@@ -92,50 +149,31 @@ export default function CriarMetaForm() {
           {errors.metaTitulo && <span className="text-red-600">{errors.metaTitulo.message}</span>}
         </div>
 
-        <div className="form__input  m-4 flex flex-col items-center">
+        <div className="form__input__valor  m-4 flex flex-col items-center">
 
           <label
-            htmlForfor="metaTotal"
+            htmlFor="valorAlvo"
             className="text-sm/8 font-medium text-gray-900">
             Qual valor que você pretende obter no total?
           </label>
 
           <input
             id="valorAlvo"
-            type="text"
-            name="metaTotal"
+            type="number"
+            step="0.01"
+            name="valorAlvo"
             className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
-            {...register("metaTotal",
+            {...register("valorAlvo",
               { required: "Você precisa indicar um valor final" })}
           />
-          {errors.metaTitulo && <span className="text-red-600">{errors.metaTitulo.message}</span>}
+          {errors.valorAlvo && <span className="text-red-600">{errors.valorAlvo.message}</span>}
         </div>
 
-        <div className="form__input  m-4 flex flex-col items-center">
-
-          <label
-            htmlForfor="metaValorInicial"
-            className="text-sm/8 font-medium text-gray-900">
-            Qual valor você irá iniciar esta meta?
-          </label>
-
-          <input
-            id="valorInicial"
-            type="decimal"
-            name="metaValorInicial"
-            className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
-            {...register("metaValorInicial",
-              { required: "A meta não pode iniciar vazia..." })}
-          />
-          {errors.metaTitulo && <span className="text-red-600">{errors.metaTitulo.message}</span>}
-        </div>
-
-
-        <div className="form__select m-4 flex flex-col items-center">
+        <div className="form__select__periodo m-4 flex flex-col items-center">
           <div>
 
             <label
-              htmlForfor="periodoConclusao"
+              htmlFor="periodoConclusao"
               className="text-sm/8 font-medium text-gray-900">
               Quantos meses você concluirá a meta?
             </label>
@@ -145,10 +183,10 @@ export default function CriarMetaForm() {
               <select
                 id="periodoConclusao"
                 name="periodoConclusao"
-                autocomplete="periodoConclusao"
+                autoComplete="periodoConclusao"
                 className="col-start-1 row-start-1 appearance-none rounded-md bg-white py-2 pr-4 pl-4 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 focus:outline-2 focus:-outline-offset-2 focus:outline-verdescuro"
                 {...register("periodoConclusao")}>
-                <option className="text-sm">Selecione um período</option>
+                <option value="" disabled className="text-sm">Selecione um período</option>
                 <option value="3" className="text-sm">3 meses</option>
                 <option value="6" className="text-sm">6 meses</option>
                 <option value="9" className="text-sm">9 meses</option>
