@@ -4,25 +4,25 @@
       "id": "1b9b",
       "nomeUsuario": "Valeria",
       "senhaUsuario": "1234",
-      "saldoUsuario": 0
+      "saldoUsuario": 0,
+      "emailUsuario": "",
+      "idadeUsuario": ""
     },
     {
       "id": "efb4",
       "nomeUsuario": "Paulo",
       "senhaUsuario": "1234",
-      "saldoUsuario": 0
+      "saldoUsuario": 0,
+      "emailUsuario": "",
+      "idadeUsuario": ""
     },
     {
-      "id": "9b30",
-      "nomeUsuario": "karen",
-      "senhaUsuario": "1234",
-      "saldoUsuario": 0
-    },
-    {
-      "id": "e27d",
-      "nomeUsuario": "schug",
-      "senhaUsuario": "1234",
-      "saldoUsuario": 0
+      "id": "2034",
+      "nomeUsuario": "Michel",
+      "senhaUsuario": "peidoleite",
+      "saldoUsuario": 0,
+      "idadeUsuario": "56",
+      "emailUsuario": "michel@viadin.com"
     }
   ],
   "metas": [
@@ -31,6 +31,7 @@
       "liderId": "1",
       "titulo": "Formatura Medicina",
       "valorAlvo": 5000,
+      "valorInicial": 0,
       "periodoConclusao": "2025-12-01",
       "status": "ativa",
       "linkConvite": "abc12"
@@ -58,6 +59,28 @@
       "periodoConclusao": "9",
       "status": "ativo",
       "linkConvite": "567"
+    },
+    {
+      "id": "6290",
+      "liderId": "efb4",
+      "tipoMeta": "Viagem",
+      "titulo": "Viagem Irlanda",
+      "valorAlvo": 10000,
+      "valorInicial": 0,
+      "periodoConclusao": "9",
+      "status": "ativo",
+      "linkConvite": "6795"
+    },
+    {
+      "id": "74d7",
+      "liderId": "efb4",
+      "tipoMeta": "Viagem",
+      "titulo": "Paris",
+      "valorAlvo": 10000,
+      "periodoConclusao": "6",
+      "status": "ativo",
+      "linkConvite": "8350",
+      "imagem": "/viagem.jpg"
     }
   ],
   "participacoes": [
