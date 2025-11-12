@@ -112,7 +112,7 @@ export default function Cadastro() {
             <label
               htmlFor='senhaUsuario'
               className="text-sm/8 font-medium text-gray-900">
-              'Crie uma senha:'
+              Crie uma senha:
             </label>
 
             <input

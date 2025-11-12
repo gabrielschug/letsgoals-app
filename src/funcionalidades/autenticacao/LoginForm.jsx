@@ -19,11 +19,11 @@ export default function Login() {
   const { login } = useAuth()
 
   async function LoginUsuario(data) {
-    const nomeUsuario = data.nomeUsuario
+    const emailUsuario = data.emailUsuario
     const senhaUsuario = data.senhaUsuario
 
     try {
-      const resposta = await fetch(`http://localhost:3000/usuarios?nomeUsuario=${nomeUsuario}&senhaUsuario=${senhaUsuario}`)
+      const resposta = await fetch(`http://localhost:3000/usuarios?emailUsuario=${emailUsuario}&senhaUsuario=${senhaUsuario}`)
       if (!resposta.ok) throw new Error("Usuário não cadastrado");
 
       const dados = await resposta.json()
@@ -46,7 +46,7 @@ export default function Login() {
   }
 
   useEffect(() => {
-    setFocus("nomeUsuario")
+    setFocus("emailUsuario")
   }, [setFocus])
 
   return (
@@ -64,19 +64,19 @@ export default function Login() {
           <div>
 
             <label
-              htmlFor='nomeUsuario'
+              htmlFor='emailUsuario'
               className="text-sm/8 font-medium text-gray-900">
-              Informe seu nome
+              Informe seu email
             </label>
 
             <input
-              id="nomeUsuario"
+              id="emailUsuario"
               type="text"
               className="block rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
-              {...register("nomeUsuario",
-                { required: "É necessário informar o seu nome" })}
+              {...register("emailUsuario",
+                { required: "É necessário informar o seu email" })}
             />
-            {errors.nomeUsuario && <span className="text-red-600">{errors.nomeUsuario.message}</span>}
+            {errors.emailUsuario && <span className="text-red-600">{errors.emailUsuario.message}</span>}
           </div>
 
           <div>
