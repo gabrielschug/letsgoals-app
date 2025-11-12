@@ -5,12 +5,12 @@ export default function BtnFuncionalidade() {
 
   const funcionalidades = [
     {
-      titulo: "Minha Carteira",
+      titulo: "Contribuir",
       icone: "icone_contribuir.png",
       rota: "/carteira"
     },
     {
-      titulo: 'Iniciar uma Meta',
+      titulo: 'Criar uma Meta',
       icone: "icone_criar.png",
       rota: "/criarMeta"
     },
@@ -29,7 +29,7 @@ export default function BtnFuncionalidade() {
   return (
     <div className="p-4 bg-gray-200">
       <Subtitulo texto='Bora realizar seus sonhos?' />
-      <div className="flex overflow-x-auto items-start mt-4 gap-3 text-center cursor-pointer ">
+      <div className="flex overflow-x-auto items-start mt-4 gap-3 text-center cursor-pointer scroollbar-hide">
         {funcionalidades.map((funcionalidade, index) => (
           <div
             key={index}

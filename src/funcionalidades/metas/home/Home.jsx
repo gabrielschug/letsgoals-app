@@ -1,8 +1,9 @@
 import BannerAnuncio from "./Components/BannerAnuncio";
 import BgCartao from "./Components/BgCartao";
 import BtnFuncionalidade from "./Components/BtnFuncionalidade";
-import Headers from "../../../components/Layout/Header";
+import Header from "../../../components/Layout/Header";
 import Footer from "../../../components/Layout/Footer";
+import ListaMetas from "./Components/ListaMetas";
 
 import { useAuth } from '../../../context/usuarioContext'
 import { useNavigate } from "react-router";
@@ -26,10 +27,11 @@ export default function Home() {
 
   return (
     <div className="bg-white relative">
-      <Headers />
+      <Header />
       <BannerAnuncio />
       <BgCartao />
       <BtnFuncionalidade />
+      <ListaMetas />
       <Footer />
     </div >
   )

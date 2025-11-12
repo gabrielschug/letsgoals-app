@@ -23,54 +23,17 @@
       "saldoUsuario": 0,
       "idadeUsuario": "56",
       "emailUsuario": "michel@viadin.com"
+    },
+    {
+      "id": "a9ca",
+      "nomeUsuario": "Gabriel Schug",
+      "senhaUsuario": "1234",
+      "saldoUsuario": 0,
+      "idadeUsuario": "28",
+      "emailUsuario": "gabriel@email.com"
     }
   ],
   "metas": [
-    {
-      "id": "100",
-      "liderId": "1",
-      "titulo": "Formatura Medicina",
-      "valorAlvo": 5000,
-      "valorInicial": 0,
-      "periodoConclusao": "2025-12-01",
-      "status": "ativa",
-      "linkConvite": "abc12"
-    },
-    {
-      "id": "101",
-      "liderId": "2",
-      "titulo": "Viagem Floripa",
-      "valorAlvo": 2500,
-      "valorInicial": 0,
-      "periodoConclusao": "2025-06-30",
-      "status": "ativa",
-      "linkConvite": "xyz98"
-    },
-    {
-      "id": "52f6",
-      "liderId": "1",
-      "periodoConclusao": "6",
-      "status": "ativo",
-      "linkConvite": "9242"
-    },
-    {
-      "id": "e93e",
-      "liderId": "1",
-      "periodoConclusao": "9",
-      "status": "ativo",
-      "linkConvite": "567"
-    },
-    {
-      "id": "6290",
-      "liderId": "efb4",
-      "tipoMeta": "Viagem",
-      "titulo": "Viagem Irlanda",
-      "valorAlvo": 10000,
-      "valorInicial": 0,
-      "periodoConclusao": "9",
-      "status": "ativo",
-      "linkConvite": "6795"
-    },
     {
       "id": "74d7",
       "liderId": "efb4",
@@ -80,21 +43,85 @@
       "periodoConclusao": "6",
       "status": "ativo",
       "linkConvite": "8350",
-      "imagem": "/viagem.jpg"
+      "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
+    },
+    {
+      "id": "08e3",
+      "liderId": "2034",
+      "tipoMeta": "Formatura",
+      "titulo": "Formatura ADS 2027",
+      "valorAlvo": 5500,
+      "periodoConclusao": "24",
+      "status": "ativo",
+      "linkConvite": "86",
+      "imagem": "https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?_gl=1*1x2nsfc*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA4NzMkajMyJGwwJGgw"
+    },
+    {
+      "id": "d442",
+      "liderId": "2034",
+      "tipoMeta": "Viagem",
+      "titulo": "Formatura ADS 2027",
+      "valorAlvo": 5500,
+      "periodoConclusao": "9",
+      "status": "ativo",
+      "linkConvite": "2128",
+      "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw.png"
+    },
+    {
+      "id": "1ff0",
+      "liderId": "2034",
+      "tipoMeta": "Viagem",
+      "titulo": "Teste",
+      "valorAlvo": 1.5,
+      "periodoConclusao": "3",
+      "status": "ativo",
+      "linkConvite": "879",
+      "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
+    },
+    {
+      "id": "c39a",
+      "liderId": "2034",
+      "tipoMeta": "Aluguel",
+      "titulo": "Aluguel da casa 2026",
+      "valorAlvo": 2495,
+      "periodoConclusao": "6",
+      "status": "ativo",
+      "linkConvite": "6312",
+      "imagem": "https://images.pexels.com/photos/7579192/pexels-photo-7579192.jpeg?_gl=1*1q84cne*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5MTkkajYwJGwwJGgw"
+    },
+    {
+      "id": "2c6d",
+      "liderId": "a9ca",
+      "tipoMeta": "Viagem",
+      "titulo": "Florianópolis FEV",
+      "valorAlvo": 2500,
+      "periodoConclusao": "3",
+      "status": "ativo",
+      "linkConvite": "2419",
+      "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
     }
   ],
   "participacoes": [
-    {
-      "id": "p1",
-      "metaId": "100",
-      "usuarioId": "1",
-      "nomeUsuario": "valeria"
-    },
     {
       "id": "p2",
       "metaId": "101",
       "usuarioId": "2",
       "nomeUsuario": "claudio"
+    },
+    {
+      "id": "p1929",
+      "metaId": "1ff0",
+      "usuarioId": "2034"
+    },
+    {
+      "id": "4187",
+      "metaId": "c39a",
+      "usuarioId": "2034"
+    },
+    {
+      "id": "f82e",
+      "metaId": "2c6d",
+      "usuarioId": "a9ca"
     }
   ],
   "contribuicoes": [

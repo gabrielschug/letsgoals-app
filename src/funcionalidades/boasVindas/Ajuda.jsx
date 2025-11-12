@@ -1,12 +1,31 @@
 import Headers from "../../components/Layout/Header";
 import Footer from "../../components/Layout/Footer";
 
+import { useAuth } from '../../context/usuarioContext'
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
+
 export default function Ajuda() {
+  const { usuarioLogado, isAuthLoading } = useAuth()
+  const navigate = useNavigate()
+  
+    useEffect(() => {
+      if (!isAuthLoading) {
+        if (!usuarioLogado) {
+          navigate("/")
+        }
+      }
+    }, [usuarioLogado, isAuthLoading, navigate])
+  
+    if (isAuthLoading) {
+      return <p className="pt-40 text-center">Carregando...</p>
+    }
+
 
   return (
-    <div className="p-6 text-gray-800 leading-relaxed">
+    <div className="text-gray-800">
       <Headers />
-      <h1 className="text-3xl font-bold mb-4 text-center">🧭 Bem-vindo ao LetsGoals!</h1>
+      <h1 className="p-6 text-3xl font-bold mb-4 text-center">🧭 Bem-vindo ao LetsGoals!</h1>
 
       <p className="mb-6 text-justify">
         O <strong>LetsGoals</strong> foi criado para transformar o jeito como você e seus amigos realizam

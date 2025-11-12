@@ -13,6 +13,8 @@ import Login from './funcionalidades/autenticacao/LoginForm.jsx'
 import Cadastro from './funcionalidades/autenticacao/CadastroForm.jsx'
 import Home from './funcionalidades/metas/home/Home.jsx'
 import Ajuda from './funcionalidades/boasVindas/Ajuda.jsx'
+import { MetaDetalhes } from './funcionalidades/metas/MetaDetalhes.jsx'
+import PerfilUsuario from './funcionalidades/autenticacao/perfilUsuario.jsx'
 
 const router = createBrowserRouter([
   { path: "/", Component: Inicio },
@@ -21,6 +23,8 @@ const router = createBrowserRouter([
   { path: "/cadastro", Component: Cadastro },
   { path: "/home", Component: Home },
   { path: "/criarmeta", Component: CriarMetaForm },
+  {path: "/meta-detalhes/:id", Component: MetaDetalhes},
+  {path: "/usuarios/:id", Component: PerfilUsuario},
 ]);
 
 createRoot(document.getElementById('root')).render(

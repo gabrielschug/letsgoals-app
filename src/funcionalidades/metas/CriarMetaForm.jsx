@@ -14,6 +14,8 @@ export default function CriarMetaForm() {
   const navigate = useNavigate()
   const { usuarioLogado, isAuthLoading } = useAuth()
 
+
+  // INICIALIZAÇÃO DA PÁGINA ---------------------------------------------------
   useEffect(() => {
     if (isAuthLoading) {
       return;
@@ -25,8 +27,14 @@ export default function CriarMetaForm() {
     }
   }, [isAuthLoading, usuarioLogado, setFocus, navigate])
 
+
+
+  // REGISTRO DA META ----------------------------------------------------------
   async function criarMeta(data) {
     if (!usuarioLogado) return 
+
+
+    // Criando as variáveis para envio
 
     const liderId = usuarioLogado.id
     const tipoMeta = data.tipoMeta
@@ -37,18 +45,16 @@ export default function CriarMetaForm() {
     let imagem = ""
 
     if(tipoMeta === "Viagem"){
-      imagem = "/viagem.jpg"
+      imagem = "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
     } else if (tipoMeta === "Formatura"){
-      imagem = "/formatura.jpg"
+      imagem = "https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?_gl=1*1x2nsfc*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA4NzMkajMyJGwwJGgw"
     } else if (tipoMeta === "Aluguel"){
-      imagem = "/aluguel.jpg"
+      imagem = "https://images.pexels.com/photos/7579192/pexels-photo-7579192.jpeg?_gl=1*1q84cne*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5MTkkajYwJGwwJGgw"
     } else {
-      imagem = "/sonho.jpg"
+      imagem = "https://images.pexels.com/photos/3943723/pexels-photo-3943723.jpeg?_gl=1*i4fecu*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5NTIkajI3JGwwJGgw"
     }
 
-    console.log("Dados enviados:", { liderId, tipoMeta, titulo, valorAlvo, periodoConclusao, imagem })
-
-
+    // Criando a META no backend
     try {
       const resposta = await fetch("http://localhost:3000/metas", {
         method: "POST",
@@ -70,16 +76,34 @@ export default function CriarMetaForm() {
       }
 
       const novaMeta = await resposta.json()
-      alert(`✅ Ok! a Meta ${novaMeta.titulo} foi criada!`)
+
+      // Criando a PARTICIPAÇÃO no backend
+      const participacao = {
+        metaId: novaMeta.id,
+        usuarioId: usuarioLogado.id,
+      };
+
+      const respostaParticipacao = await fetch("http://localhost:3000/participacoes", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(participacao),
+      });
+
+      if (!respostaParticipacao.ok) {
+        const errorText = await respostaParticipacao.text().catch(() => "");
+        throw new Error(`Erro ao registrar participação (Status ${respostaParticipacao.status}): ${errorText}`);
+      }
+
+      alert(`✅ Ok! a Meta ${novaMeta.titulo} foi criada e sua participação foi registrada!`)
       navigate("/home")
 
     } catch (error) {
       console.error(`❌ Erro ao criar meta:`, error)
       alert(`❌ ${error.message}`)
     }
+
     reset()
   }
-
 
   if (isAuthLoading) {
     return <p className="pt-40 text-center">Carregando...</p>
