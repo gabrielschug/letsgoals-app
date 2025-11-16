@@ -12,14 +12,14 @@ O sistema deve permitir que um usuário crie uma conta (cadastro), realize auten
 e visualize seus dados.
 ✅ Cadastro de Usuário
 ✅ FAZER: Login de usuário
-⚪ FAZER: Perfil de usuário - Visualização de dados
+✅ FAZER: Perfil de usuário - Visualização de dados
 
 🔶 RF_02: Criar Meta Colaborativa
 O sistema deve permitir que um usuário autenticado crie uma nova meta (grupo), definindo título,
 valor-alvo, data de conclusão e gerando um link de convite.
 ✅ FAZER: [Front-end] Implementar formulário de criação de meta (título, valor, períodos, participantes).
 ✅ FAZER: [Back-end] Criar endpoint para salvar a nova meta no banco de dados -máximo 3 metas por usuário.
-🟡 FAZER: [Back-end] Implementar lógica para gerar link de convite exclusivo - Informar ID da Meta.
+✅ FAZER: [Back-end] Implementar lógica para gerar link de convite exclusivo - Informar ID da Meta.
 
 🔶 RF_03: Adesão à Meta
 O sistema deve permitir que um usuário, por meio de um link de convite, visualize os detalhes de uma

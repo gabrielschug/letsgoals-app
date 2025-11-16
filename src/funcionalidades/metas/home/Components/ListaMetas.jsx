@@ -58,7 +58,7 @@ export default function ListaMetas() {
         <div>
             <Subtitulo texto="Suas Metas" />
             {metasUsuario.length > 0 ? (
-                <ul className="space-y-4">
+                <ul className="space-y-4 mx-4">
                     {metasUsuario.map((meta) => {
                         const totalContribuido = contribuicoes
                             .filter((c) => c.metaId === meta.id)

@@ -21,11 +21,11 @@ export default function Header() {
   };
 
   return (
-    <div className="sticky top-0 w-full bg-verde py-4 px-2 flex justify-around items-center">
+    <div className="sticky top-0 w-full bg-verde py-4 px-2 flex justify-around items-center ">
       <img
-        className="rounded-4xl w-12 border-branco border-3"
-        src="/img_usuario.png"
-        alt="Foto do usuário"
+        className="rounded-4xl h-12 w-12 border-branco border-2 cursor-pointer image-cover"
+        src={usuarioLogado.imagemUsuario}
+        alt=""
         onClick={handlePerfilUsuario}
       />
       <TituloCabecalho texto="LetsGoals" link={"/home"} />

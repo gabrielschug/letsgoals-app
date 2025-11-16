@@ -18,19 +18,21 @@
     },
     {
       "id": "2034",
-      "nomeUsuario": "Michel",
+      "nomeUsuario": "Gabriel",
       "senhaUsuario": "peidoleite",
       "saldoUsuario": 0,
-      "idadeUsuario": "56",
-      "emailUsuario": "michel@viadin.com"
+      "idadeUsuario": "303",
+      "emailUsuario": "michel@viadin.com",
+      "imagemUsuario": "150,"
     },
     {
-      "id": "a9ca",
-      "nomeUsuario": "Gabriel Schug",
+      "id": "bacb",
+      "nomeUsuario": "Schug",
       "senhaUsuario": "1234",
       "saldoUsuario": 0,
       "idadeUsuario": "28",
-      "emailUsuario": "gabriel@email.com"
+      "emailUsuario": "gabrielschug@hotmail.com",
+      "imagemUsuario": "https://media.licdn.com/dms/image/v2/D4D03AQFdQjeq6UuoAQ/profile-displayphoto-crop_800_800/B4DZlpUganGwAI-/0/1758408607861?e=1764806400&v=beta&t=ae19HqSHI1xBGW7Fs9TpzwK5jSn8KCCElHlvRpy3mTI"
     }
   ],
   "metas": [
@@ -99,6 +101,50 @@
       "status": "ativo",
       "linkConvite": "2419",
       "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
+    },
+    {
+      "id": "b9ca",
+      "liderId": "bacb",
+      "tipoMeta": "Viagem",
+      "titulo": "Florianópolis",
+      "valorAlvo": 5000,
+      "periodoConclusao": "3",
+      "status": "ativo",
+      "linkConvite": "423",
+      "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
+    },
+    {
+      "id": "1ac9",
+      "liderId": "bacb",
+      "tipoMeta": "Aluguel",
+      "titulo": "Aluguel",
+      "valorAlvo": 3500,
+      "periodoConclusao": "3",
+      "status": "ativo",
+      "linkConvite": "5492",
+      "imagem": "https://images.pexels.com/photos/7579192/pexels-photo-7579192.jpeg?_gl=1*1q84cne*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5MTkkajYwJGwwJGgw"
+    },
+    {
+      "id": "e7fd",
+      "liderId": "bacb",
+      "tipoMeta": "Outros",
+      "titulo": "Pagamento do Curso ADS",
+      "valorAlvo": 3400,
+      "periodoConclusao": "6",
+      "status": "ativo",
+      "linkConvite": "6099",
+      "imagem": "https://images.pexels.com/photos/3943723/pexels-photo-3943723.jpeg?_gl=1*i4fecu*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5NTIkajI3JGwwJGgw"
+    },
+    {
+      "id": "4a6d",
+      "liderId": "bacb",
+      "tipoMeta": "Formatura",
+      "titulo": "Formatura ADS",
+      "valorAlvo": 5500,
+      "periodoConclusao": "24",
+      "status": "ativo",
+      "linkConvite": "8758",
+      "imagem": "https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?_gl=1*1x2nsfc*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA4NzMkajMyJGwwJGgw"
     }
   ],
   "participacoes": [
@@ -122,6 +168,26 @@
       "id": "f82e",
       "metaId": "2c6d",
       "usuarioId": "a9ca"
+    },
+    {
+      "id": "331f",
+      "metaId": "b9ca",
+      "usuarioId": "bacb"
+    },
+    {
+      "id": "f92c",
+      "metaId": "1ac9",
+      "usuarioId": "bacb"
+    },
+    {
+      "id": "b93e",
+      "metaId": "e7fd",
+      "usuarioId": "bacb"
+    },
+    {
+      "id": "966f",
+      "metaId": "4a6d",
+      "usuarioId": "bacb"
     }
   ],
   "contribuicoes": [

@@ -25,7 +25,7 @@ export function MetaDetalhes() {
         // Busca os dados do Usuário atraves do ID da meta
         fetch(`http://localhost:3000/metas/${id}`)
             .then((response) => {
-                if (!response.ok) { throw new Error("Erro ao buscar detalhes da meta");}
+                if (!response.ok) { throw new Error("Erro ao buscar detalhes da meta"); }
                 return response.json();
             })
             .then((data) => {
@@ -34,7 +34,7 @@ export function MetaDetalhes() {
                 return fetch(`http://localhost:3000/usuarios/${data.liderId}`);
             })
             .then((response) => {
-                if (!response.ok) {throw new Error("Erro ao buscar líder da meta");}
+                if (!response.ok) { throw new Error("Erro ao buscar líder da meta"); }
                 return response.json();
             })
             .then((data) => setLider(data)) // Todas infos do Usuário Lider
@@ -43,16 +43,16 @@ export function MetaDetalhes() {
         // Busca os participantes da meta
         fetch(`http://localhost:3000/participacoes?metaId=${id}`)
             .then((response) => {
-                if (!response.ok) {throw new Error("Erro ao buscar participantes da meta");}
+                if (!response.ok) { throw new Error("Erro ao buscar participantes da meta"); }
                 return response.json();
             })
             .then((data) => {
                 const userPromises = data.map((participacao) =>
                     fetch(`http://localhost:3000/usuarios/${participacao.usuarioId}`)
                         .then((response) => {
-                            if (!response.ok) {throw new Error("Erro ao buscar usuário participante");}
+                            if (!response.ok) { throw new Error("Erro ao buscar usuário participante"); }
                             return response.json();
-                    })
+                        })
                 );
 
                 Promise.all(userPromises)
@@ -85,6 +85,10 @@ export function MetaDetalhes() {
         .filter((c) => c.usuarioId === usuarioLogado.id)
         .reduce((acc, curr) => acc + curr.valor, 0);
 
+
+
+
+
     return (
         <div>
             <Header />
@@ -111,7 +115,7 @@ export function MetaDetalhes() {
 
                 <div className="mt-4">
                     <h3 className="text-lg font-semibold">Contribuições</h3>
-                    <p><strong>Sua contribuição:</strong> <FormatarReais valor={contribuicaoUsuarioLogado}/></p>
+                    <p><strong>Sua contribuição:</strong> <FormatarReais valor={contribuicaoUsuarioLogado} /></p>
                     <ul className="list-disc pl-5">
                         {participantes.map((p) => {
                             const contribuicao = contribuicoes
@@ -120,7 +124,7 @@ export function MetaDetalhes() {
 
                             return (
                                 <li key={p.id}>
-                                    {p.nomeUsuario}: R$ <FormatarReais valor={contribuicao} /> 
+                                    {p.nomeUsuario}: R$ <FormatarReais valor={contribuicao} />
                                 </li>
                             );
                         })}
@@ -128,6 +132,9 @@ export function MetaDetalhes() {
                 </div>
             </div>
             <Footer />
+
+
+            <form action=""></form>
         </div>
     );
 }

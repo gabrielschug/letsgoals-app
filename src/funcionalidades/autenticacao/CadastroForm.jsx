@@ -18,7 +18,7 @@ export default function Cadastro() {
     const saldoUsuario = 0
 
     try {
-  const resposta = await fetch("http://localhost:3000/usuarios", {
+      const resposta = await fetch("http://localhost:3000/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
