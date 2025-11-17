@@ -2,50 +2,55 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import Header from "../../components/Layout/Header";
 import Footer from "../../components/Layout/Footer";
-import { FaPencil } from "react-icons/fa6";
 import { useForm } from "react-hook-form";
-import { BsCheckCircleFill } from "react-icons/bs";
-
 import { useAuth } from "../../context/usuarioContext";
-
-
 
 export default function PerfilUsuario() {
     const { id } = useParams();
     const [usuario, setUsuario] = useState(null);
     const [error, setError] = useState(null);
-    const { register, handleSubmit, reset } = useForm()
-    const { login } = useAuth()
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm();
+    const { login } = useAuth();
+    const [alterarInformacoes, setAlterarInformacoes] = useState(false);
+
+    const toggleAlterarInformacoes = () => {
+        setAlterarInformacoes(!alterarInformacoes);
+    };
 
     async function alterarDados(data) {
-        const nome = data.nome
-        const idade = data.idade
-        const imagem = data.imagem
-        console.log("Dados para alterar:", nome, idade, imagem)
         try {
-            const resposta = await fetch(`http://localhost:3000/usuarios/${usuario.id}`, {
-                method: "PUT",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    ...usuario,
-                    nomeUsuario: nome, idadeUsuario: idade, imagemUsuario: imagem
-                })
-            })
-            if (!resposta.ok)
-                throw new Error(`Erro ao alterar usuário`)
-            const usuarioAtualizado = await resposta.json()
-            console.log('Atualizado', usuarioAtualizado)
+            const novaImagem = data.imagem || usuario.imagemUsuario; // Mantém a imagem atual se o campo estiver vazio
+
+            const resposta = await fetch(
+                `http://localhost:3000/usuarios/${usuario.id}`,
+                {
+                    method: "PUT",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({
+                        ...usuario,
+                        nomeUsuario: data.nome,
+                        idadeUsuario: data.idade,
+                        imagemUsuario: novaImagem,
+                    }),
+                }
+            );
+            if (!resposta.ok) throw new Error(`Erro ao alterar usuário`);
+            const usuarioAtualizado = await resposta.json();
+            setUsuario(usuarioAtualizado);
+            reset();
+            login();
         } catch (erro) {
-            console.log(`❌ Erro: ${erro.message}`)
+            console.error(`❌ Erro: ${erro.message}`);
         }
-        console.log("Resetando o formulário")
-        reset()
-        login()
     }
 
     useEffect(() => {
         if (id) {
-            // Busca os dados do usuário com base no ID da URL
             fetch(`http://localhost:3000/usuarios/${id}`)
                 .then((response) => {
                     if (!response.ok) {
@@ -69,55 +74,110 @@ export default function PerfilUsuario() {
     return (
         <div>
             <Header />
-            <div className="p-4 flex flex-col items-center ">
+            <div className="p-4 flex flex-col items-center w-screen ">
                 <h1 className="text-2xl font-bold mb-4">Perfil do Usuário</h1>
-                <img src={usuario.imagemUsuario} alt="" className="w-40 h-40 rounded-full  mb-4" />
+                <img
+                    src={usuario.imagemUsuario}
+                    alt="Foto do usuário"
+                    className="w-40 h-40 rounded-full mb-4"
+                />
 
                 <form onSubmit={handleSubmit(alterarDados)}>
-                    <div >
+                    <div>
                         <div className="flex flex-col gap-2">
-                            <p><strong>Nome:</strong> {usuario.nomeUsuario}</p>
-                            <input type="text" className="bg-white outline-2 pl-2 w-40 outline-gray-400 rounded-sm"
-                                {...register("nome",
-                                    { required: "Informe o novo nome de usuário" })} />
+                            <p>
+                                <strong>Nome:</strong> {usuario.nomeUsuario}
+                            </p>
+                            {alterarInformacoes && (
+                                <>
+                                    <input
+                                        type="text"
+                                        className="block w-60 rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
+                                        {...register("nome", {
+                                            required: "Informe o novo nome de usuário",
+                                        })}
+                                    />
+                                    {errors.nome && (
+                                        <p className="text-red-500 text-sm mt-1">
+                                            {errors.nome.message}
+                                        </p>
+                                    )}
+                                </>
+                            )}
                         </div>
 
                         <div className="mt-2">
-                            <p><strong>Email:</strong> {usuario.emailUsuario}</p>
+                            <p>
+                                <strong>Email:</strong> {usuario.emailUsuario}
+                            </p>
                         </div>
 
                         <div className="flex-col mb-2">
                             <div className="flex gap-2 items-center">
                                 <strong>Idade:</strong> {usuario.idadeUsuario}
                             </div>
-                            <div className="flex items-center gap-2 ">
-                                <input type="text" className="bg-white outline-2 pl-2 w-20 outline-gray-400 rounded-sm"
-                                    {...register("idade",
-                                        { required: "Informe sua idade" })} />
-                            </div>
+                            {alterarInformacoes && (
+                                <>
+                                    <input
+                                        type="text"
+                                        className="block w-60 rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
+                                        {...register("idade", {
+                                            required: "Informe sua idade",
+                                        })}
+                                    />
+                                    {errors.idade && (
+                                        <p className="text-red-500 text-sm mt-1">
+                                            {errors.idade.message}
+                                        </p>
+                                    )}
+                                </>
+                            )}
                         </div>
 
-                        <div className="flex-col  mb-2">
+                        <div className="flex-col mb-2 gap-2">
                             <div className="flex items-center gap-2">
-                                <p><strong>Imagem</strong> {usuario.img}</p>
+                                <p>
+                                    <strong>Imagem:</strong> {usuario.imagemUsuario && " URL carregada"}
+                                </p>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <input type="text" className="bg-white outline-2 pl-2 outline-gray-400 rounded-sm"
-                                    {...register("imagem",
-                                        { required: "Adicione sua imagem" })}
-                                />
-                            </div>
+                            {alterarInformacoes && (
+                                <>
+                                    <input
+                                        type="text"
+                                        className="block w-60 rounded-md bg-white px-4 py-2 text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-verdeescuro"
+                                        {...register("imagem", {
+                                            required: "Adicione sua imagem",
+                                        })}
+                                    />
+                                    {errors.imagem && (
+                                        <p className="text-red-500 text-sm mt-1">
+                                            {errors.imagem.message}
+                                        </p>
+                                    )}
+                                </>
+                            )}
                         </div>
-
                     </div>
                     <div className="flex gap-2 mt-8 justify-center m-0">
-                        <input type="button"
-                            className="bg-white text-textop py-1 px-3 text-md rounded-full flex items-center text-center font-bold cursor-pointer hover:bg-gray-300"
-                            value="Editar Dados" />
-                        <input
-                            className="bg-verde text-white py-1 px-3 text-md rounded-full flex items-center text-center font-bold cursor-pointer hover:bg-verdeescuro"
-                            type="submit"
-                            value="Enviar" />
+                        <button
+                            type="button"
+                            onClick={toggleAlterarInformacoes}
+                            className=
+                            {
+                                alterarInformacoes == false
+                                    ? "bg-verde text-white py-3 px-9 text-md rounded-full flex items-center text-center font-bold cursor-pointer hover:bg-verdeescuro"
+                                    : "bg-branco text-textop py-3 px-9 text-md rounded-full flex items-center text-center font-bold cursor-pointer hover:text-textos hover:outline-1"
+                            }
+                        >
+                            {alterarInformacoes ? "Cancelar" : "Editar Dados"}
+                        </button>
+                        {alterarInformacoes && (
+                            <input
+                                className="bg-verde text-white py-3 px-9 text-md rounded-full flex items-center text-center font-bold cursor-pointer hover:bg-verdeescuro"
+                                type="submit"
+                                value="Salvar"
+                            />
+                        )}
                     </div>
                 </form>
             </div >

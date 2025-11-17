@@ -5,6 +5,10 @@ import Header from "../../components/Layout/Header";
 import Footer from "../../components/Layout/Footer";
 import { useAuth } from "../../context/usuarioContext";
 import FormatarReais from "../../components/Layout/FormatarReais";
+import { FaCalendarAlt } from "react-icons/fa";
+import { PiMoneyWavyFill } from "react-icons/pi";
+
+
 
 
 // INICIA A FUNÇÃO PRINCIPAL ---------------------------------------------------
@@ -85,21 +89,24 @@ export function MetaDetalhes() {
         .filter((c) => c.usuarioId === usuarioLogado.id)
         .reduce((acc, curr) => acc + curr.valor, 0);
 
-
-
-
-
     return (
-        <div>
+        <div className="bg-fundo h-screen flex flex-col">
             <Header />
             <div className="p-4">
                 <h1 className="text-2xl font-bold mb-4">{meta.titulo}</h1>
                 <img
                     src={meta.imagem}
                     alt={meta.titulo}
-                    className="w-32 h-32 object-cover rounded-md mb-4"
+                    className={meta.status == 'Concluída'
+                        ? "w-32 h-32 object-cover rounded-md mb-4 border-4 border-verde"
+                        : "w-32 h-32 object-cover rounded-md mb-4"
+                    }
                 />
+                {meta.status == 'Concluída' && <p><strong>Status: {meta.status}</strong></p>}
                 <p><strong>Valor Alvo:</strong> <FormatarReais valor={meta.valorAlvo} /></p>
+                <p><strong>Contribuído:</strong> <FormatarReais valor={
+                    contribuicoes.reduce((acc, curr) => acc + curr.valor, 0)
+                } /></p>
                 <p><strong>Período para Conclusão:</strong> {meta.periodoConclusao} meses</p>
                 <p><strong>Líder:</strong>  {lider.nomeUsuario}</p>
                 <p><strong>Senha Convite: </strong><span className="bg-azul px-1 font-semibold rounded-sm text-white"> {meta.id} </span></p>
@@ -118,13 +125,19 @@ export function MetaDetalhes() {
                     <p><strong>Sua contribuição:</strong> <FormatarReais valor={contribuicaoUsuarioLogado} /></p>
                     <ul className="list-disc pl-5">
                         {participantes.map((p) => {
-                            const contribuicao = contribuicoes
-                                .filter((c) => c.usuarioId === p.id)
-                                .reduce((acc, curr) => acc + curr.valor, 0);
-
+                            const contribuicoesUsuario = contribuicoes.filter((c) => c.usuarioId === p.id);
                             return (
                                 <li key={p.id}>
-                                    {p.nomeUsuario}: R$ <FormatarReais valor={contribuicao} />
+                                    <p>{p.nomeUsuario}:</p>
+                                    <ul className="list-disc pl-5">
+                                        {contribuicoesUsuario.map((contribuicao) => (
+                                            <li key={contribuicao.id} className="flex items-center gap-1">
+                                                <FaCalendarAlt />
+                                                {new Date(contribuicao.data).toLocaleDateString()} | <PiMoneyWavyFill />
+                                                <FormatarReais valor={contribuicao.valor} />
+                                            </li>
+                                        ))}
+                                    </ul>
                                 </li>
                             );
                         })}

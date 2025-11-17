@@ -7,7 +7,7 @@ export default function BtnFuncionalidade() {
     {
       titulo: "Contribuir",
       icone: "icone_contribuir.png",
-      rota: "/carteira"
+      rota: "/contribuir"
     },
     {
       titulo: 'Criar uma Meta',

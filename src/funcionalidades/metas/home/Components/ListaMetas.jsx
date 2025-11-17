@@ -65,7 +65,11 @@ export default function ListaMetas() {
                             .reduce((acc, curr) => acc + curr.valor, 0);
 
                         return (
-                            <li key={meta.id} className="p-4 bg-gray-200 rounded-md shadow-md flex items-center">
+                            <li key={meta.id}
+                                className={meta.status == 'Concluída'
+                                    ? "p-4 bg-menta rounded-md shadow-md flex items-center"
+                                    : "p-4 bg-gray-200 rounded-md shadow-md flex items-center"
+                                }>
                                 <img
                                     src={meta.imagem}
                                     alt={meta.titulo}
@@ -78,7 +82,10 @@ export default function ListaMetas() {
                                     }}
                                     className="block hover:underline"
                                 >
-                                    <h3 className="text-base font-semibold">{meta.titulo}</h3>
+                                    <h3 className="text-base font-semibold">
+                                        {meta.titulo}
+
+                                    </h3>
                                     <p className="text-md">Contribuído: <FormatarReais valor={totalContribuido} /></p>
                                     <p className="text-md">Valor Alvo: <FormatarReais valor={meta.valorAlvo} /></p>
                                     <p>Progresso da Meta: [ █ █ █ ] </p>

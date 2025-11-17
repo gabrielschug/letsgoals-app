@@ -15,6 +15,7 @@ import Home from './funcionalidades/metas/home/Home.jsx'
 import Ajuda from './funcionalidades/boasVindas/Ajuda.jsx'
 import { MetaDetalhes } from './funcionalidades/metas/MetaDetalhes.jsx'
 import PerfilUsuario from './funcionalidades/autenticacao/perfilUsuario.jsx'
+import Contribuir from './funcionalidades/metas/contribuir/contribuir.jsx'
 
 const router = createBrowserRouter([
   { path: "/", Component: Inicio },
@@ -23,8 +24,9 @@ const router = createBrowserRouter([
   { path: "/cadastro", Component: Cadastro },
   { path: "/home", Component: Home },
   { path: "/criarmeta", Component: CriarMetaForm },
-  {path: "/meta-detalhes/:id", Component: MetaDetalhes},
-  {path: "/usuarios/:id", Component: PerfilUsuario},
+  { path: "/meta-detalhes/:id", Component: MetaDetalhes },
+  { path: "/usuarios/:id", Component: PerfilUsuario },
+  { path: "/contribuir", Component: Contribuir },
 ]);
 
 createRoot(document.getElementById('root')).render(

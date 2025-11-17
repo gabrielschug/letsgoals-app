@@ -31,7 +31,7 @@ export default function CriarMetaForm() {
 
   // REGISTRO DA META ----------------------------------------------------------
   async function criarMeta(data) {
-    if (!usuarioLogado) return 
+    if (!usuarioLogado) return
 
 
     // Criando as variáveis para envio
@@ -44,11 +44,11 @@ export default function CriarMetaForm() {
     const linkConvite = String(Math.floor(Math.random() * 9999))
     let imagem = ""
 
-    if(tipoMeta === "Viagem"){
+    if (tipoMeta === "Viagem") {
       imagem = "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
-    } else if (tipoMeta === "Formatura"){
+    } else if (tipoMeta === "Formatura") {
       imagem = "https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?_gl=1*1x2nsfc*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA4NzMkajMyJGwwJGgw"
-    } else if (tipoMeta === "Aluguel"){
+    } else if (tipoMeta === "Aluguel") {
       imagem = "https://images.pexels.com/photos/7579192/pexels-photo-7579192.jpeg?_gl=1*1q84cne*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5MTkkajYwJGwwJGgw"
     } else {
       imagem = "https://images.pexels.com/photos/3943723/pexels-photo-3943723.jpeg?_gl=1*i4fecu*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5NTIkajI3JGwwJGgw"
@@ -114,7 +114,7 @@ export default function CriarMetaForm() {
   }
 
   return (
-    <div className="container  flex flex-col items-center pt-40 h-screen" >
+    <div className="container  flex flex-col items-center pt-40 h-screen bg-fundo" >
 
       <div className="flex justify-center text-center">
         <Titulo texto="Bora Criar uma Meta Coletiva!" />
@@ -122,7 +122,7 @@ export default function CriarMetaForm() {
 
       <form onSubmit={handleSubmit(criarMeta)}>
 
-      <div className="form__select__tipo m-4 flex flex-col items-center">
+        <div className="form__select__tipo m-4 flex flex-col items-center">
           <div>
 
             <label
@@ -152,7 +152,7 @@ export default function CriarMetaForm() {
 
             </div>
           </div>
-       </div>
+        </div>
 
         <div className="form__input__titulo  m-4 flex flex-col items-center">
 

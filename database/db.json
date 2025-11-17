@@ -42,6 +42,15 @@
       "idadeUsuario": "18",
       "emailUsuario": "joaquim@gmail.com",
       "imagemUsuario": "https://pbs.twimg.com/media/EcyqZ1IX0AE_gxi.jpg"
+    },
+    {
+      "id": "8a6c",
+      "nomeUsuario": "Karen",
+      "senhaUsuario": "1234",
+      "saldoUsuario": 0,
+      "idadeUsuario": "22",
+      "emailUsuario": "karen@gmail.com",
+      "imagemUsuario": "https://media.licdn.com/dms/image/v2/D4D03AQFKKA47-AZS9w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1714400661029?e=1764806400&v=beta&t=aEQNBvzAGdDmCWkuNUZlXVS_rSk4UB3huP5PzDReg50"
     }
   ],
   "metas": [
@@ -118,7 +127,7 @@
       "titulo": "Florianópolis",
       "valorAlvo": 5000,
       "periodoConclusao": "3",
-      "status": "ativo",
+      "status": "Concluída",
       "linkConvite": "423",
       "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
     },
@@ -129,7 +138,7 @@
       "titulo": "Aluguel",
       "valorAlvo": 3500,
       "periodoConclusao": "3",
-      "status": "ativo",
+      "status": "Concluída",
       "linkConvite": "5492",
       "imagem": "https://images.pexels.com/photos/7579192/pexels-photo-7579192.jpeg?_gl=1*1q84cne*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5MTkkajYwJGwwJGgw"
     },
@@ -140,7 +149,7 @@
       "titulo": "Pagamento do Curso ADS",
       "valorAlvo": 3400,
       "periodoConclusao": "6",
-      "status": "ativo",
+      "status": "concluida",
       "linkConvite": "6099",
       "imagem": "https://images.pexels.com/photos/3943723/pexels-photo-3943723.jpeg?_gl=1*i4fecu*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA5NTIkajI3JGwwJGgw"
     },
@@ -154,9 +163,26 @@
       "status": "ativo",
       "linkConvite": "8758",
       "imagem": "https://images.pexels.com/photos/1205651/pexels-photo-1205651.jpeg?_gl=1*1x2nsfc*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA4NzMkajMyJGwwJGgw"
+    },
+    {
+      "id": "a544",
+      "liderId": "8a6c",
+      "tipoMeta": "Viagem",
+      "titulo": "SC 2026",
+      "valorAlvo": 3000,
+      "periodoConclusao": "3",
+      "status": "Concluída",
+      "linkConvite": "4563",
+      "imagem": "https://images.pexels.com/photos/386009/pexels-photo-386009.jpeg?_gl=1*1lfkqwv*_ga*NzMwMTQ0NDUzLjE3NjI5NjA3MDI.*_ga_8JE65Q40S6*czE3NjI5NjA3MDEkbzEkZzEkdDE3NjI5NjA3MTYkajQ1JGwwJGgw"
     }
   ],
   "participacoes": [
+    {
+      "id": "p2",
+      "metaId": "b9ca",
+      "usuarioId": "8a6c",
+      "nomeUsuario": "Karen Costa"
+    },
     {
       "id": "p2",
       "metaId": "101",
@@ -197,6 +223,11 @@
       "id": "966f",
       "metaId": "4a6d",
       "usuarioId": "bacb"
+    },
+    {
+      "id": "519c",
+      "metaId": "a544",
+      "usuarioId": "8a6c"
     }
   ],
   "contribuicoes": [
@@ -213,6 +244,97 @@
       "usuarioId": "2",
       "valor": 150,
       "data": "2024-10-15T14:30:00Z"
+    },
+    {
+      "id": "c5",
+      "metaId": "",
+      "usuarioId": "",
+      "valor": 200,
+      "data": "2024-10-15T14:34:00Z"
+    },
+    {
+      "id": "6a0b",
+      "metaId": "b9ca",
+      "usuarioId": "bacb",
+      "valor": 500,
+      "data": "2025-11-17T00:30:23.346Z"
+    },
+    {
+      "id": "69d4",
+      "metaId": "b9ca",
+      "usuarioId": "bacb",
+      "valor": 1500,
+      "data": "2025-11-17T00:30:44.544Z"
+    },
+    {
+      "id": "6915",
+      "metaId": "b9ca",
+      "usuarioId": "8a6c",
+      "valor": 2000,
+      "data": "2025-11-17T00:30:44.544Z"
+    },
+    {
+      "id": "b6c0",
+      "metaId": "1ac9",
+      "usuarioId": "bacb",
+      "valor": 1000,
+      "data": "2025-11-17T00:35:45.581Z"
+    },
+    {
+      "id": "d315",
+      "metaId": "1ac9",
+      "usuarioId": "bacb",
+      "valor": 500,
+      "data": "2025-11-17T00:36:36.292Z"
+    },
+    {
+      "id": "05bb",
+      "metaId": "b9ca",
+      "usuarioId": "bacb",
+      "valor": 300,
+      "data": "2025-11-17T01:10:13.242Z"
+    },
+    {
+      "id": "21b8",
+      "metaId": "b9ca",
+      "usuarioId": "bacb",
+      "valor": 700,
+      "data": "2025-11-17T02:39:37.655Z"
+    },
+    {
+      "id": "84de",
+      "metaId": "1ac9",
+      "usuarioId": "bacb",
+      "valor": 2000,
+      "data": "2025-11-17T02:49:48.946Z"
+    },
+    {
+      "id": "77a2",
+      "metaId": "4a6d",
+      "usuarioId": "bacb",
+      "valor": 500,
+      "data": "2025-11-17T03:03:48.287Z"
+    },
+    {
+      "id": "d409",
+      "metaId": "4a6d",
+      "usuarioId": "bacb",
+      "valor": 500,
+      "data": "2025-11-17T03:04:10.522Z"
+    },
+    {
+      "id": "5db7",
+      "metaId": "a544",
+      "usuarioId": "8a6c",
+      "valor": 2000,
+      "data": "2025-11-17T03:33:17.504Z"
+    },
+    {
+      "id": "596f",
+      "metaId": "a544",
+      "usuarioId": "8a6c",
+      "valor": 1000,
+      "data": "2025-11-17T03:33:50.308Z"
     }
   ]
 }

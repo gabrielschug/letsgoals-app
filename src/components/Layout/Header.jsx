@@ -22,12 +22,16 @@ export default function Header() {
 
   return (
     <div className="sticky top-0 w-full bg-verde py-4 px-2 flex justify-around items-center ">
-      <img
-        className="rounded-4xl h-12 w-12 border-branco border-2 cursor-pointer image-cover"
-        src={usuarioLogado.imagemUsuario}
-        alt=""
-        onClick={handlePerfilUsuario}
-      />
+      {usuarioLogado ? (
+        <img
+          className="rounded-4xl h-12 w-12 border-branco border-2 cursor-pointer image-cover"
+          src={usuarioLogado.imagemUsuario}
+          alt="Foto do usuário"
+          onClick={handlePerfilUsuario}
+        />
+      ) : (
+        <div className="rounded-4xl h-12 w-12 border-branco border-2 bg-gray-300"></div>
+      )}
       <TituloCabecalho texto="LetsGoals" link={"/home"} />
       <div className="flex gap-2">
         <Link to="/ajuda">
